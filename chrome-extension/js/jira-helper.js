@@ -10,7 +10,7 @@
     return new Promise((resolve, reject) => {
       var fields = 'fields=fields,key'
       var jql = `jql=worklogDate='${worklogDate}' AND worklogAuthor=currentUser()`
-      var url = jiraOptions.jiraUrl + '/rest/api/2/search?' + fields + '&' + jql
+      var url = jiraOptions.jiraUrl + '/rest/api/2/search/jql?' + fields + '&' + jql
 
       var config = {
         headers: headers,
@@ -34,7 +34,7 @@
     return new Promise((resolve, reject) => {
       var fields = 'fields=fields,key'
       var jql = `jql=worklogAuthor=currentUser()`
-      var url = options.jiraUrl + '/rest/api/2/search?' + fields + '&' + jql
+      var url = options.jiraUrl + '/rest/api/2/search/jql?' + fields + '&' + jql
 
       if (options.user && options.password) {
         var b64 = btoa(`${options.user}:${options.password}`)

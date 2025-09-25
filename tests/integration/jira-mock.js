@@ -19,12 +19,12 @@ const search = {
             }]
         })
     }, defaultSuccessfulResponse)
-    //TODO: mock //https://jira.com/rest/api/2/search?fields=fields,key&jql=worklogDate=%272018-01-01%27%20AND%20worklogAuthor=currentUser()
+    //TODO: mock //https://jira.com/rest/api/2/search/jql?fields=fields,key&jql=worklogDate=%272018-01-01%27%20AND%20worklogAuthor=currentUser()
 };
 const items = {
     "CMS-123": {
-        "worklogs":[  
-            {  
+        "worklogs":[
+            {
                 "author":{
                     // "key":"hue@br.com",
                     "accountId": "some:token"
@@ -37,8 +37,8 @@ const items = {
         ]
     },
     "CMS-456": {
-        "worklogs":[  
-            {  
+        "worklogs":[
+            {
                 "author":{
                     // "key":"hue@br.com",
                     "accountId": "some:token"
@@ -63,9 +63,9 @@ module.exports = {
         let match;
         if(match = request.url().match('rest/api/2/issue/([^/]+)/worklog')){
             let item = match[1]
-            return Object.assign( {body: JSON.stringify(items[item])}, defaultSuccessfulResponse); 
+            return Object.assign( {body: JSON.stringify(items[item])}, defaultSuccessfulResponse);
         }
-        
+
         return {
             status: 404
         };
